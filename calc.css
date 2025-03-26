@@ -1,0 +1,327 @@
+* {
+  box-sizing: border-box;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-family: 'StratosSkyeng';
+  font-style: normal;
+  font-weight: 400;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.calculator {
+  width: 1160px;
+  background-color: #ffffff;
+  border: 2px solid #00aefa;
+  border-radius: 24px;
+  padding: 40px;
+}
+.calculator__container {
+  display: flex;
+  flex-direction: column;
+}
+.calculator__content {
+  border-bottom: 2px solid #00aefa;
+}
+.template__contract {
+  border-bottom: 2px solid #d7f0fb;
+  padding-bottom: 32px;
+}
+.template__contract-inputs {
+  border-bottom: 2px solid #d7f0fb;
+  padding-bottom: 32px;
+}
+.calculator__result {
+  background-color: #f6f6f6;
+  padding: 16px;
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 19.8px;
+  margin-top: 32px;
+  border-radius: 16px;
+}
+.calculator__result-header {
+  display: grid;
+  grid-template-columns: 130px 170px 150px 150px 210px 120px;
+  gap: 10px;
+}
+.calculator__result-item {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 214px 170px;
+  gap: 10px;
+}
+.result-item-wrap {
+  display: grid;
+  grid-template-columns: 130px 170px 150px 150px 210px 120px 20px 20px;
+  gap: 10px;
+  margin-top: 16px;
+  padding-bottom: 16px;
+  align-items: center;
+  border-bottom: 2px solid #ffffff;
+}
+.calculator__content-template {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 32px;
+}
+.result-header__product {
+  width: 120px;
+}
+.result-header__segment {
+  width: 146px;
+}
+.template-title {
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.05px;
+  color: #00aefa;
+}
+.template__contract-inputs {
+  display: flex;
+  gap: 20px;
+}
+.template__contract-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.template__contract-input label {
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.08px;
+  letter-spacing: -0.05000000074505806px;
+  color: #04121b;
+}
+.template__contract-input.amount label {
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.08px;
+  letter-spacing: -0.05000000074505806px;
+  color: #00aefa;
+}
+.template__product-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.group1,
+.group2 {
+  display: flex;
+  gap: 20px;
+}
+.group3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+input {
+  /* width: 300px; */
+  height: 48px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.05000000074505806px;
+  padding: 10px 20px;
+}
+.input-error {
+  border: 1px solid #ff0000 !important;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.05000000074505806px;
+}
+#period {
+  width: 300px;
+}
+#employees,
+#segment {
+  width: 298px;
+}
+#segment-count,
+#proportion,
+#amount {
+  width: 164px;
+}
+#amount {
+  color: #00aefa;
+  text-align: center;
+}
+.promt {
+  pointer-events: none;
+  position: absolute;
+}
+.period-desc {
+  top: 41px;
+  left: 204px;
+}
+.employees-desc {
+  top: 41px;
+  left: 166px;
+}
+.segment-count-desc {
+  top: 62px;
+  left: 108px;
+}
+.proportion-desc {
+  top: 62px;
+  left: 127px;
+}
+.compensation-title {
+  width: 204px;
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.08px;
+  letter-spacing: -0.05000000074505806px;
+}
+.tab {
+  height: 48px;
+  width: fit-content;
+  background-color: #f4f4f4;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.05000000074505806px;
+  color: rgba(0, 0, 0, 0.48);
+  cursor: pointer;
+}
+.tab_active {
+  background-color: #ecf9ff;
+  border: 1px solid #00aefa;
+  color: #00aefa;
+}
+.save-kp {
+  width: 265px;
+  height: 48px;
+  background-color: #00aefa;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.05000000074505806px;
+  color: #ffffff;
+}
+.calculator__save {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 32px;
+}
+.add-kp {
+  width: 265px;
+  height: 48px;
+  background-color: #d7f0fb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.05000000074505806px;
+  color: #00aefa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 22px;
+}
+.add-kp::after {
+  content: url('https://static.tildacdn.com/tild3363-3731-4164-b936-343437666563/Add-in-Circle.svg');
+  height: 29px;
+}
+.result-header__edit {
+  width: 20px;
+  height: 20px;
+  background-image: url('https://static.tildacdn.com/tild6437-3862-4336-b561-636661336263/Writing-2.svg');
+  cursor: pointer;
+}
+.result-header__delete {
+  width: 20px;
+  height: 20px;
+  background-image: url('https://static.tildacdn.com/tild6236-6438-4435-a634-333365646537/Close-in-Circle.svg');
+  cursor: pointer;
+}
+.result-header__segment-count,
+.result-header__proportion {
+  display: none;
+}
+.calculator__result-total {
+  margin-left: 640px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgba(0, 0, 0, 0.64);
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.8px;
+  padding-right: 8px;
+}
+.total__corp-discount {
+  color: #00aefa;
+}
+.total__download {
+  height: 48px;
+  background-color: #00aefa;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: StratosSkyeng;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.05000000074505806px;
+  margin-top: 14px;
+  cursor: pointer;
+}
+.total__sum {
+  display: flex;
+  justify-content: space-between;
+}
+.total__mounthly-sum {
+  display: flex;
+  justify-content: space-between;
+}
+.total__corp-discount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.total__corp-discount-num {
+  color: #ffffff;
+  background-color: #00aefa;
+  width: 62px;
+  height: 29px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.total__sum-with-discount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+}

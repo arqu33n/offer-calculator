@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./calc.css" />
+    <script src="./calc.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Калькулятор коммерческого предложения</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="calculator__container">
+        <div class="calculator__content">
+          <div class="calculator__content-template">
+            <div class="template-title template__contract">Контракт</div>
+            <div class="template-item template__contract-inputs">
+              <!-- период -->
+              <div class="template__contract-input">
+                <label for="period">Период контракта</label>
+                <input
+                  type="text"
+                  id="period"
+                  name="period"
+                  placeholder="12"
+                  oninput="validateNumberInput(this)"
+                />
+                <div class="period-desc promt">месяцев</div>
+              </div>
+              <!-- всего сотрудников -->
+              <div class="template__contract-input">
+                <label for="employees"
+                  >Количество сотрудников в компании (всего)</label
+                >
+                <input
+                  type="text"
+                  id="employees"
+                  name="employees"
+                  placeholder="100"
+                  oninput="validateNumberInput(this)"
+                />
+                <div class="employees-desc promt">сотрудников</div>
+              </div>
+            </div>
+            <div class="template-title template__product">Продукт</div>
+            <div class="template-item template__product-inputs">
+              <div class="group1">
+                <!-- сегмент -->
+                <div class="template__contract-input">
+                  <label for="segment"
+                    >Название сегмента<br />
+                    учеников от компании</label
+                  >
+                  <input
+                    type="text"
+                    id="segment"
+                    name="segment"
+                    placeholder="Топ-менеджмент"
+                  />
+                </div>
+                <!-- численность сегмента -->
+                <div class="template__contract-input">
+                  <label for="segment-count">Численность сегмента</label>
+                  <input
+                    type="text"
+                    id="segment-count"
+                    name="segment-count"
+                    placeholder="99"
+                    oninput="validateNumberInput(this)"
+                  />
+                  <div class="segment-count-desc promt">чел.</div>
+                </div>
+                <!-- доля -->
+                <div class="template__contract-input">
+                  <label for="proportion">Доля от сегмента для обучения</label>
+                  <input
+                    type="text"
+                    id="proportion"
+                    name="proportion"
+                    placeholder="9"
+                    oninput="validateNumberInput(this)"
+                  />
+                  <div class="proportion-desc promt">%</div>
+                </div>
+                <!-- всего сотрудников -->
+                <div class="template__contract-input amount">
+                  <label for="amount">Всего сотрудников к обучению</label>
+                  <input
+                    type="text"
+                    id="amount"
+                    name="amount"
+                    placeholder="99"
+                    oninput="validateNumberInput(this)"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="group2 compensation">
+                <div class="compensation-title">
+                  Доля компенсации со стороны компании
+                </div>
+                <div class="compensation-btn tab">100%</div>
+                <div class="compensation-btn tab">80%</div>
+                <div class="compensation-btn tab">50%</div>
+                <div class="compensation-btn tab">20%</div>
+                <div class="compensation-btn tab">0%</div>
+              </div>
+              <div class="group3 courses">
+                <div class="course-btn tab">General English</div>
+                <div class="course-btn tab">Premium English</div>
+                <div class="course-btn tab">Для бизнеса и общения</div>
+                <div class="course-btn tab">Для IT-специалистов</div>
+                <div class="course-btn tab">Для маркетологов</div>
+                <div class="course-btn tab">Безграничный английский</div>
+              </div>
+              <div class="calculator__save">
+                <button class="save-kp">Расчитать КП</button>
+                <button class="add-kp">Добавить ещё подукт</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="calculator__result">
+          <div class="calculator__result-header">
+            <div class="result-header__product">Продукт</div>
+            <div class="result-header__segment">Название<br />сегмента</div>
+            <div class="result-header__amount">
+              Сотрудники<br />
+              для обучения
+            </div>
+            <div class="result-header__average-bill">
+              Средний чек<br />
+              на специалиста
+            </div>
+            <div class="result-header__compensation-bill">
+              Сумма из среднего чека, компенсируемая компанией
+            </div>
+            <div class="result-header__bill">
+              Итоговая<br />
+              сумма
+            </div>
+          </div>
+          <div class="calculator__result-items"></div>
+          <div class="calculator__result-total">
+            <div class="total__sum">
+              Сумма контракта
+              <div class="total__sum-num"></div>
+            </div>
+            <div class="total__corp-discount">
+              Корпоративная скидка
+              <div class="total__corp-discount-num"></div>
+            </div>
+            <div class="total__sum-with-discount">
+              Сумма контракта<br />
+              с&nbsp;корпоративной&nbsp;скидкой
+              <div class="total__sum-with-discount-num"></div>
+            </div>
+            <div class="total__mounthly-sum">
+              Сумма конракта в месяц
+              <div class="total__mounthly-sum-num"></div>
+            </div>
+            <button class="total__download">Скачать КП</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="save-container"></div>
+  </body>
+</html>
